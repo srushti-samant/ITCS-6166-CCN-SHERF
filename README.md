@@ -49,3 +49,8 @@ Register and download SMPL models [here](https://smpl.is.tue.mpg.de/). Put the d
 
 # Generating Samples.
     !python gen_samples.py
+
+    
+# Limitations
+1) LACK OF DISTRIBUTED SYSTEM FOR MULTI-PROCESSING.
+2) LACK OF GPU'S.
