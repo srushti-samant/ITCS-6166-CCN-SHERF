@@ -1,4 +1,4 @@
-# ITCS-6166-CCN
+# ITCS-6166-CCN-GROUP-7
 # SHERF: Generalizable Human NeRF from a Single Image
 This is a repository for the final project of Group 7 for the course ITCS 6166/8166 (Computer Communication and Networks) under the guidance of Dr. Pu Wang. It has detailed instructions on how to run the project using Google Colab. We recreated the results of the project SHERF: Generalizable Human NeRF from a Single Image.
 
