@@ -3,6 +3,7 @@
 This is a repository for the final project of Group 7 for the course ITCS 6166/8166 (Computer Communication and Networks) under the guidance of Dr. Pu Wang. It has detailed instructions on how to run the project using Google Colab. We recreated the results of the project SHERF: Generalizable Human NeRF from a Single Image.
 
                                SHERF learns a Generalizable Human NeRF to animate 3D humans from a single image.
+                               
 1) NVIDIA GPUs are required for this project. We recommand Using 4 gpus for running this project.
 2) We used Google Colab and anaconda to manage the python environment.
 3) Grp7-SHERF.ipynb is our colab file. Open it and follow the steps.
