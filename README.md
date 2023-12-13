@@ -31,3 +31,21 @@ The pretrained models and SMPL model are needed for inference.
 The pretrained models are put in [OneDrive](https://mycuhk-my.sharepoint.com/personal/1155098117_link_cuhk_edu_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2F1155098117%5Flink%5Fcuhk%5Fedu%5Fhk%2FDocuments%2FICCV2023%5FSHERF%2FSHERF%5Fcheckpoint%2Ezip&parent=%2Fpersonal%2F1155098117%5Flink%5Fcuhk%5Fedu%5Fhk%2FDocuments%2FICCV2023%5FSHERF&ga=1).
 
 Register and download SMPL models [here](https://smpl.is.tue.mpg.de/). Put the downloaded models in the folder smpl_models. Only the neutral one is needed. The folder structure should look like
+           
+            ./
+
+           ├── ...
+
+           └── assets/
+
+          ├── SMPL_NEUTRAL.pkl
+
+# Inference code with RenderPeople dataset
+    bash eval_renderpeople_512x512.sh
+
+# Training
+# Training code with RenderPeople dataset
+    bash train_renderpeople_512x512.sh
+
+# Generating Samples.
+    !python gen_samples.py
