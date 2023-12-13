@@ -1,0 +1,30 @@
+Loading training set...
+num of subjects:  450
+Traceback (most recent call last):
+  File "train.py", line 452, in <module>
+    main() # pylint: disable=no-value-for-parameter
+  File "C:\Users\jkris\anaconda3\envs\sherf\lib\site-packages\click\core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "C:\Users\jkris\anaconda3\envs\sherf\lib\site-packages\click\core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "C:\Users\jkris\anaconda3\envs\sherf\lib\site-packages\click\core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "C:\Users\jkris\anaconda3\envs\sherf\lib\site-packages\click\core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "train.py", line 447, in main
+    launch_training(c=c, desc=desc, outdir=opts.outdir, dry_run=opts.dry_run)
+  File "train.py", line 107, in launch_training
+    subprocess_fn(rank=0, c=c, temp_dir=temp_dir)
+  File "train.py", line 58, in subprocess_fn
+    training_loop.training_loop(rank=rank, **c)
+  File "C:\Users\jkris\Downloads\SHERF-main\SHERF-main\sherf\training\training_loop.py", line 178, in training_loop
+    training_set = dnnlib.util.construct_class_by_name(**training_set_kwargs) # subclass of training.dataset.Dataset
+  File "C:\Users\jkris\Downloads\SHERF-main\SHERF-main\sherf\dnnlib\util.py", line 305, in construct_class_by_name
+    return call_func_by_name(*args, func_name=class_name, **kwargs)
+  File "C:\Users\jkris\Downloads\SHERF-main\SHERF-main\sherf\dnnlib\util.py", line 300, in call_func_by_name
+    return func_obj(*args, **kwargs)
+  File "C:\Users\jkris\Downloads\SHERF-main\SHERF-main\sherf\training\RenderPeople_dataset.py", line 180, in __init__
+    t_vertices, _ = self.smpl_model(self.big_pose_params['poses'], self.big_pose_params['shapes'].reshape(-1))
+  File "C:\Users\jkris\Downloads\SHERF-main\SHERF-main\sherf\smpl\smpl_numpy.py", line 52, in __call__
+    v_shaped = shapedirs.dot(beta).reshape(20670, 10) + v_template # (6890, 3)
+ValueError: cannot reshape array of size 620100 into shape (20670,10)

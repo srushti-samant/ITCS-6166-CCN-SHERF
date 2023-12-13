@@ -1,0 +1,134 @@
+{
+  "G_kwargs": {
+    "class_name": "training.triplane.TriPlaneGenerator",
+    "z_dim": 512,
+    "w_dim": 512,
+    "use_1d_feature": true,
+    "use_2d_feature": true,
+    "use_3d_feature": true,
+    "use_trans": true,
+    "use_NeRF_decoder": true,
+    "mapping_kwargs": {
+      "num_layers": 2
+    },
+    "channel_base": 32768,
+    "channel_max": 512,
+    "fused_modconv_default": "inference_only",
+    "rendering_kwargs": {
+      "image_resolution": 512,
+      "disparity_space_sampling": false,
+      "clamp_mode": "relu",
+      "superresolution_module": "training.superresolution.SuperresolutionHybrid8XDC",
+      "white_back": false,
+      "c_gen_conditioning_zero": false,
+      "gpc_reg_prob": 0.8,
+      "c_scale": 1.0,
+      "superresolution_noise_mode": "none",
+      "density_reg": 0.25,
+      "density_reg_p_dist": 0.004,
+      "density_noise": 1.0,
+      "reg_type": "l1",
+      "decoder_lr_mul": 1.0,
+      "sr_antialias": true,
+      "depth_resolution": 48,
+      "depth_resolution_importance": 0
+    },
+    "num_fp16_res": 0,
+    "sr_num_fp16_res": 4,
+    "sr_kwargs": {
+      "channel_base": 32768,
+      "channel_max": 512,
+      "fused_modconv_default": "inference_only"
+    },
+    "conv_clamp": null
+  },
+  "D_kwargs": {
+    "class_name": "training.dual_discriminator.DualDiscriminator",
+    "block_kwargs": {
+      "freeze_layers": 0
+    },
+    "mapping_kwargs": {},
+    "epilogue_kwargs": {
+      "mbstd_group_size": 1
+    },
+    "channel_base": 32768,
+    "channel_max": 512,
+    "disc_c_noise": 0.0,
+    "num_fp16_res": 4,
+    "conv_clamp": 256
+  },
+  "G_opt_kwargs": {
+    "class_name": "torch.optim.Adam",
+    "betas": [
+      0,
+      0.99
+    ],
+    "eps": 1e-08,
+    "lr": 0.0025
+  },
+  "D_opt_kwargs": {
+    "class_name": "torch.optim.Adam",
+    "betas": [
+      0,
+      0.99
+    ],
+    "eps": 1e-08,
+    "lr": 0.002
+  },
+  "loss_kwargs": {
+    "class_name": "training.loss.StyleGAN2Loss",
+    "r1_gamma": 5.0,
+    "filter_mode": "antialiased",
+    "blur_init_sigma": 0,
+    "blur_fade_kimg": 25.0,
+    "gpc_reg_prob": 0.8,
+    "gpc_reg_fade_kimg": 0,
+    "dual_discrimination": true,
+    "neural_rendering_resolution_initial": 512,
+    "neural_rendering_resolution_final": null,
+    "neural_rendering_resolution_fade_kimg": 1000,
+    "style_mixing_prob": 0.0
+  },
+  "data_loader_kwargs": {
+    "pin_memory": true,
+    "prefetch_factor": 2,
+    "num_workers": 3
+  },
+  "training_set_kwargs": {
+    "class_name": "training.RenderPeople_dataset.RenderPeopleDatasetBatch",
+    "data_root": "data/RenderPeople_recon/20230228/seq_000000-rp_aaron_rigged_001",
+    "split": "train",
+    "multi_person": true,
+    "num_instance": 450,
+    "poses_start": 0,
+    "poses_interval": 2,
+    "poses_num": 10,
+    "image_scaling": 1.0,
+    "white_back": false,
+    "sample_obs_view": true,
+    "fix_obs_view": false,
+    "resolution": 512
+  },
+  "num_gpus": 1,
+  "batch_size": 4,
+  "batch_gpu": 4,
+  "metrics": [
+    "fid50k_full"
+  ],
+  "total_kimg": 800,
+  "kimg_per_tick": 4,
+  "image_snapshot_ticks": 50,
+  "network_snapshot_ticks": 50,
+  "random_seed": 0,
+  "recons_loss": true,
+  "use_sr_module": false,
+  "cfg": "RenderPeople",
+  "test_flag": true,
+  "ema_kimg": 10,
+  "G_reg_interval": 4.0,
+  "resume_kimg": 0,
+  "resume_pkl": "logs/training-RenderPeople-runs-450-subject-rs-512-1d-2d-3d-feature-NeRF-decoder-use-trans-sample-obs-view-gpu-4/SHERF_RenderPeople.pkl",
+  "ada_kimg": 100,
+  "ema_rampup": null,
+  "run_dir": "logs/training-RenderPeople-runs-450-subject-rs-512-1d-2d-3d-feature-NeRF-decoder-use-trans-sample-obs-view-gpu-4\\00036-RenderPeople-RenderPeople-gpus1-batch4-gamma5"
+}
